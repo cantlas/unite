@@ -1,11 +1,10 @@
 import axios from 'axios'
 import { userLoggedIn } from './auth'
 
-export const signup = data => dispatch =>
+export const signup = user => dispatch =>
 	axios
-		.post('/api/users', { data })
-		.then(res => res.data.user)
-		.then(user => {
-			localStorage.unite = user.token
-			dispatch(userLoggedIn(user))
+		.post('/api/users', { user })
+		.then(res => {
+			localStorage.uniteJWT = res.data.user.token
+			dispatch(userLoggedIn(res.data.user))
 		})

@@ -38,8 +38,9 @@ class SignupForm extends React.Component {
 			this.props
 				.signup(this.state.data)
 				.then(() => this.props.history.push('/dashboard'))
-				.catch(err =>
-					this.setState({ errors: err.response.data.errors, loading: false} )
+				.catch(err => {
+					this.setState({ errors: err, loading: false} )
+				}
 				)
 		}
 	}
@@ -59,6 +60,7 @@ class SignupForm extends React.Component {
 
 	return (
 	<Container>
+	{errors.message && <InlineError text={errors.message} />}
 		<Form onSubmit={this.onSubmit} loading={loading}>
 			<Form.Field error={!!errors.email}>
 				<label>Email</label>

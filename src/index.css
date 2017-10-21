@@ -18,9 +18,32 @@ body {
 
 .content {
 	flex: 1;
+	padding-top: 20px;
 }
 
 .footer {
-	background-color: black;
-	height: 150px;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.header {
+	background-color: #882D60;
+	height: 50px;
+}
+
+.main-head {
+	text-align: center;
+	font-size: 50px;
+}
+
+.link {
+	color: blue;
+	cursor: pointer;
+}
+
+.footer-list {
+	color: black;
+	font-size: 10px;
 }
