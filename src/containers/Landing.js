@@ -17,10 +17,10 @@ class Landing extends React.Component {
 	render() {
 	return (
 	<Container>
-		<h1 className='main-head'>Yard.</h1>
+		<h1 className='main-head'>Unite!</h1>
 		{this.state.toggleLogin ? (
 		<div>
-		<LoginForm />
+		<LoginForm history={this.props.history} />
 		<Container textAlign='right'>
 		Don't have an account? &nbsp; <span className='link' onClick={this.toggleLogin}>Sign up</span>
 		</Container>
@@ -28,7 +28,7 @@ class Landing extends React.Component {
 		)
 		: (
 		<div>
-		<SignupForm />
+		<SignupForm history={this.props.history} />
 		<Container textAlign='right'>
 		Already have an account? &nbsp; <span className='link' onClick={this.toggleLogin}>Log in</span>
 		</Container>

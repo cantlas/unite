@@ -18,10 +18,26 @@ import App from './App';
 // Reducer
 import rootReducer from './rootReducer'
 
+// JWT
+import decode from 'jwt-decode'
+
+// Actions
+import { userLoggedIn } from './actions/auth'
+
 const store = createStore(
 	rootReducer,
 	composeWithDevTools(applyMiddleware(thunk, logger))
 	)
+
+if (localStorage.uniteJWT) {
+  const payload = decode(localStorage.uniteJWT);
+  const user = {
+    token: localStorage.uniteJWT,
+    email: payload.email,
+    confirmed: payload.confirmed
+  };
+  store.dispatch(userLoggedIn(user));
+}
 
 
 ReactDOM.render(

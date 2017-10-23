@@ -18,6 +18,11 @@ export const login = credentials => dispatch =>
 			dispatch(userLoggedIn(user))
 		})
 
+export const logout = () => dispatch => {
+  localStorage.removeItem("uniteJWT");
+  dispatch(userLoggedOut());
+};
+
 export const confirm = token => dispatch =>
 	axios.post('/api/auth/confirmation', { token })
 		.then(res => {

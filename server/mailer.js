@@ -20,7 +20,7 @@ export function sendConfirmationEmail(user) {
     to: user.email,
     subject: "Welcome to Unite",
     text: `
-    Welcome to Unite. Please, confirm your email.
+    Welcome to Unite. Please confirm your email.
     ${user.generateConfirmationUrl()}
     `
   };

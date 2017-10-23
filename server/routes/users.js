@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
   const { email, password } = req.body.user;
+  console.log(req.body)
   const user = new User({ email });
   user.setPassword(password);
   user.setConfirmationToken();
@@ -16,7 +17,7 @@ router.post("/", (req, res) => {
       sendConfirmationEmail(userRecord);
       res.json({ user: userRecord.toAuthJSON() });
     })
-    .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
+    .catch(err => res.status(400).json({errors: parseErrors(err.errors)}))
 });
 
 export default router;
